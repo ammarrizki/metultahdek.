@@ -66,54 +66,6 @@
         <div class="atas">
             <img src="img/Android Compact - 1.png" alt="Happy Birthday Image">
         </div>
-        <div class="lagu-video">
-            <!-- Audio Element -->
-            <audio id="main-audio" preload="auto" loop>
-                <source src="audio/Feast - Nina (Video Lirik).mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-
-            <!-- Overlay and Notification -->
-            <div id="overlay" style="display: none;"></div>
-            <div id="notification" style="display: none;">
-                <p class="tengahnotif">Selamat ulang tahun cantik! Maaf ya, hadiahnya telat dan ini saja. Tetap jadi orang baik ya. Dunia boleh jahat, tapi kamu jangan. Sekarang tekan tombolnya!</p>
-                <button id="play-button">PLAY</button>
-            </div>
-
-            <!-- Video Placeholder (Optional) -->
-            <div class="video-container" style="position: relative;">
-                <div 
-                    id="video-overlay" 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; cursor: pointer; z-index: 2;">
-                </div>
-            </div>
-
-            <!-- JavaScript -->
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const audio = document.getElementById('main-audio');
-                    const overlay = document.getElementById('overlay');
-                    const notification = document.getElementById('notification');
-                    const playButton = document.getElementById('play-button');
-
-                    // Autoplay audio
-                    audio.play().catch(() => {
-                        console.log("Autoplay gagal, menampilkan notifikasi...");
-                        document.body.classList.add('no-scroll');
-                        overlay.style.display = 'block';
-                        notification.style.display = 'block';
-                    });
-
-                    // Play audio on button click
-                    playButton.addEventListener('click', () => {
-                        audio.play();
-                        document.body.classList.remove('no-scroll');
-                        overlay.style.display = 'none';
-                        notification.style.display = 'none';
-                    });
-                });
-            </script>
-        </div>
     </div>
 </body>
 </html>
