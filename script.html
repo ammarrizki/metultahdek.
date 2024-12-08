@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hbd dek</title>
-    <link rel="stylesheet" href="style.css">
-
     <style>
         *{
             margin: 0;
@@ -93,7 +91,7 @@
                     const videoOverlay = document.getElementById('video-overlay');
                     const videoIframe = document.getElementById('main-video');
             
-                    // Autoplay audio
+      
                     audio.play().catch(() => {
                         console.log("Autoplay gagal, menampilkan notifikasi...");
                         document.body.classList.add('no-scroll');
@@ -101,7 +99,7 @@
                         notification.style.display = 'block';
                     });
             
-                    // Play audio on button click
+           
                     playButton.addEventListener('click', () => {
                         audio.play();
                         document.body.classList.remove('no-scroll');
@@ -109,9 +107,9 @@
                         notification.style.display = 'none';
                     });
             
-                    // Pause audio when user interacts with the video overlay
+                   
                     videoOverlay.addEventListener('click', () => {
-                        videoOverlay.style.display = 'none'; // Remove overlay to allow interaction with video
+                        videoOverlay.style.display = 'none';
                         if (!audio.paused) {
                             audio.pause();
                             console.log("Audio paused because user clicked the video overlay.");
