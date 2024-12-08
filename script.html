@@ -95,7 +95,6 @@
                     const overlay = document.getElementById('overlay');
                     const notification = document.getElementById('notification');
                     const playButton = document.getElementById('play-button');
-                    const videoOverlay = document.getElementById('video-overlay');
 
                     // Autoplay audio
                     audio.play().catch(() => {
@@ -111,15 +110,6 @@
                         document.body.classList.remove('no-scroll');
                         overlay.style.display = 'none';
                         notification.style.display = 'none';
-                    });
-
-                    // Pause audio when user interacts with the video overlay
-                    videoOverlay.addEventListener('click', () => {
-                        videoOverlay.style.display = 'none'; // Remove overlay to allow interaction with video
-                        if (!audio.paused) {
-                            audio.pause();
-                            console.log("Audio paused because user clicked the video overlay.");
-                        }
                     });
                 });
             </script>
