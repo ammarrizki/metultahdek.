@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hbd dek</title>
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="css/style.css">
+
     <style>
-        *{
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        img{
+        img {
             width: 100%;
         }
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
         }
         #overlay {
@@ -31,28 +34,27 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             padding: 20px;
             border-radius: 8px;
             text-align: center;
             z-index: 1000;
-            width: 200px;
+            width: 90%;
+            max-width: 300px;
         }
-        .tengahnotif{
-            background-color: white;
+        .tengahnotif {
+            margin-bottom: 20px;
         }
         button {
             background-color: #fec2cc;
             color: white;
             border: none;
             padding: 10px 20px;
-            margin-top: 10px;
             border-radius: 5px;
             cursor: pointer;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #f89bab;
         }
         .no-scroll {
             overflow: hidden;
@@ -62,26 +64,31 @@
 <body>
     <div class="container">
         <div class="atas">
-            <img src="Android Compact - 1.png">
+            <img src="img/Android Compact - 1.png" alt="Happy Birthday Image">
         </div>
-        <div class="lagu,video">
+        <div class="lagu-video">
+            <!-- Audio Element -->
             <audio id="main-audio" preload="auto" loop>
-                <source src="Feast - Nina (Video Lirik).mp3" type="audio/mp3">
+                <source src="audio/Feast - Nina (Video Lirik).mp3" type="audio/mp3">
+                Your browser does not support the audio element.
             </audio>
-            
+
+            <!-- Overlay and Notification -->
             <div id="overlay" style="display: none;"></div>
             <div id="notification" style="display: none;">
-                <p class="tengahnotif">Selamat Ulang tahunn cantikk, maaaf yaa hadiahnya telat dan ini doanggg, teruss jadi orng baik yaa dunia boleh jahat tapi kamu jangann, nahh sekarang tekenn tombolnyaa</p>
+                <p class="tengahnotif">Selamat ulang tahun cantik! Maaf ya, hadiahnya telat dan ini saja. Tetap jadi orang baik ya. Dunia boleh jahat, tapi kamu jangan. Sekarang tekan tombolnya!</p>
                 <button id="play-button">PLAY</button>
             </div>
-            
+
+            <!-- Video Placeholder (Optional) -->
             <div class="video-container" style="position: relative;">
                 <div 
                     id="video-overlay" 
                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; cursor: pointer; z-index: 2;">
                 </div>
             </div>
-            
+
+            <!-- JavaScript -->
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
                     const audio = document.getElementById('main-audio');
@@ -89,27 +96,26 @@
                     const notification = document.getElementById('notification');
                     const playButton = document.getElementById('play-button');
                     const videoOverlay = document.getElementById('video-overlay');
-                    const videoIframe = document.getElementById('main-video');
-            
-      
+
+                    // Autoplay audio
                     audio.play().catch(() => {
                         console.log("Autoplay gagal, menampilkan notifikasi...");
                         document.body.classList.add('no-scroll');
                         overlay.style.display = 'block';
                         notification.style.display = 'block';
                     });
-            
-           
+
+                    // Play audio on button click
                     playButton.addEventListener('click', () => {
                         audio.play();
                         document.body.classList.remove('no-scroll');
                         overlay.style.display = 'none';
                         notification.style.display = 'none';
                     });
-            
-                   
+
+                    // Pause audio when user interacts with the video overlay
                     videoOverlay.addEventListener('click', () => {
-                        videoOverlay.style.display = 'none';
+                        videoOverlay.style.display = 'none'; // Remove overlay to allow interaction with video
                         if (!audio.paused) {
                             audio.pause();
                             console.log("Audio paused because user clicked the video overlay.");
@@ -117,8 +123,9 @@
                     });
                 });
             </script>
-            
         </div>
     </div>
 </body>
 </html>
+
+
